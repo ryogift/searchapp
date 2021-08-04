@@ -12,3 +12,11 @@ The `basic` version provides a simple integration for a simple Rails model, `Art
 to include the search engine support in your model, automatically index changes to records,
 and use a form to perform simple search require 'requests.'
 
+docker run \
+    --name elasticsearch-rails-searchapp \
+    --publish 9200:9200 \
+    --env "discovery.type=single-node" \
+    --env "cluster.name=elasticsearch-rails" \
+    --env "cluster.routing.allocation.disk.threshold_enabled=false" \
+    --rm \
+    docker.elastic.co/elasticsearch/elasticsearch:7.14.0
